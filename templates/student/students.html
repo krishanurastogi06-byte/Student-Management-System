@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Students</title>
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <h1>All Student Details</h1>
+
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Roll Number</th>
+            <th>Email</th>
+            <th>Course</th>
+        </tr>
+
+        {% for student in students %}
+        <tr>
+            <td>{{ student['id'] }}</td>
+            <td>{{ student['name'] }}</td>
+            <td>{{ student['roll'] }}</td>
+            <td>{{ student['email'] }}</td>
+            <td>{{ student['course'] }}</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="5">No students found!</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    <br>
+    <a href="/dashboard">Back to Dashboard</a>
+
+</body>
+</html>
